@@ -27,3 +27,7 @@ Forgeを終了してから ForgeNEO-Update.exe を起動し、「1」で本体�
 通常のログは ForgeNEO-Anima/logs にあります。起動EXEはコンソールに同じログを表示します。別ポートでの起動には環境変数 FORGENEO_PORT を、ブラウザーを自動で開かない起動には FORGENEO_NO_BROWSER=1 を使用できます。
 
 初回はモデルとソフトウェアを合わせて十数GBを取得します。システムドライブの空き容量が少ない場合は、別ドライブのフォルダーにBATを置いてください。セットアップに使う一時ファイルとHugging Faceキャッシュも導入先に作成します。
+
+## 実機で確認した範囲
+
+Windows x64のRTX 4070 Ti SUPER（CUDA）と、同じPCのCore i7-9700KF（CPU専用PyTorch）で、起動EXEからGradioを開き、Anima Base v1.0とFnMoの両方で384×384の画像を生成しました。AMD ROCmとIntel XPUは判定・フォールバック経路を備えていますが、該当GPUでの生成は未検証です。既存環境とポートが重なるスマートフォン連携拡張2件は生成テスト時に無効化しました。配布時は元の有効・無効設定を使用します。
