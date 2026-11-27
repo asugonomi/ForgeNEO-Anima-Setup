@@ -4,11 +4,11 @@ Windows x64 向けの日本語 Forge Neo 環境です。最初に [Install-Forge
 
 BATと同じ場所に ForgeNEO-Anima フォルダーができます。セットアップ後は ForgeNEO.exe で起動し、ForgeNEO-Update.exe で更新します。コンソールの文字を選択してコピーでき、ログは logs に保存されます。
 
-公式 Anima Base v1.0、Qwenテキストエンコーダー、VAEは [CircleStone Labs](https://huggingface.co/circlestone-labs/Anima) から取得します。FnMoChIrMrgBl5_int8ConvRot は配布元登録前は保留になり、Anima Baseで起動します。登録後は更新メニューのモデル同期で追加できます。
+公式 Anima Base v1.0、Qwenテキストエンコーダー、VAEは [CircleStone Labs](https://huggingface.co/circlestone-labs/Anima) から取得します。FnMoChIrMrgBl5_int8ConvRot は [kurousagi132の公開モデル](https://huggingface.co/kurousagi132/FnMoChIrMrgBl5_int8ConvRot) から自動で取得し、初期モデルとして選択します。いずれもAPIキーは不要です。
 
 ## FnMoの配布元登録
 
-リポジトリの models.json の url に、公開Hugging Faceファイルの https://huggingface.co/所有者/モデル名/resolve/コミット/ファイル名 形式のURLを指定します。ダウンロード時に使用中の原本のサイズとSHA-256を照合します。同じモデルを手元に持っている場合は、インストール先の models.json にも同じ形式で指定できます。
+リポジトリの models.json の url に、公開Hugging Faceファイルの https://huggingface.co/所有者/モデル名/resolve/コミット/ファイル名 形式のURLを指定します。ダウンロード時に使用中の原本のサイズとSHA-256を照合します。1台だけに設定する場合は ForgeNEO-Update.exe の「6」でファイルのURLを登録し、「3」で同期してください。
 
 ## 構成
 
@@ -17,3 +17,13 @@ BATと同じ場所に ForgeNEO-Anima フォルダーができます。セット�
 Windows x64、インターネット接続、NTFSのローカルドライブを想定しています。初回は空き容量35 GiB以上を推奨します。GPU用PyTorchの導入後に演算を試し、利用できるバックエンドを選びます。CPUでは生成に時間とメモリーが必要です。機種やドライバーによって、個別拡張やINT8演算の対応状況が異なります。
 
 コードとモデルの利用条件はそれぞれの配布元に従ってください。
+
+## 更新と復元
+
+Forgeを終了してから ForgeNEO-Update.exe を起動し、「1」で本体、「2」で外部拡張を更新します。GitHub管理の21拡張は各リポジトリを確認し、ローカル由来の9拡張はこのリポジトリの local-extensions を確認します。変更対象がユーザー編集と競合した場合は、そのコンポーネントを保留し、ファイル名を表示します。依存パッケージの更新は専用のPython環境で試し、PyTorchの演算確認を通過してから切り替えます。「5」で直前の更新を1件ずつ戻せます。
+
+セットアップを中断した場合は、同じ場所からBATを実行してください。取得済みのモデルはハッシュ照合で再利用し、ダウンロード途中のファイルは再開します。Pythonの仮想環境がインストール先を記録するため、移設時は新しい場所でBATを実行してください。
+
+通常のログは ForgeNEO-Anima/logs にあります。起動EXEはコンソールに同じログを表示します。別ポートでの起動には環境変数 FORGENEO_PORT を、ブラウザーを自動で開かない起動には FORGENEO_NO_BROWSER=1 を使用できます。
+
+初回はモデルとソフトウェアを合わせて十数GBを取得します。システムドライブの空き容量が少ない場合は、別ドライブのフォルダーにBATを置いてください。セットアップに使う一時ファイルとHugging Faceキャッシュも導入先に作成します。

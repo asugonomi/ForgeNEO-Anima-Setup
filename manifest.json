@@ -1,0 +1,247 @@
+{
+  "tag": "v1.0.0",
+  "assets": [
+    {
+      "name": "forge.zip",
+      "sha": "6ba912bb479772080f4c6f4ee06eeb5abf81caa6ea8bf2f810f98f291a441dbf",
+      "size": 81855267,
+      "expanded": 249576585,
+      "files": 1431
+    },
+    {
+      "name": "extensions.zip",
+      "sha": "a5a8eea12e07a4895156996e2a2ce70dbf51d6e2b273ab0421e6430409b14688",
+      "size": 339724610,
+      "expanded": 759884327,
+      "files": 2781
+    },
+    {
+      "name": "presets.zip",
+      "sha": "dd237a146a0e442e15019f19b6ca6c87e133957067deba52b53873c69f2c6d13",
+      "size": 62322,
+      "expanded": 409294,
+      "files": 3
+    },
+    {
+      "name": "detectors.zip",
+      "sha": "2505e808d64a99c67edceb37ebbb33a5a89ab91b153c4298f052bea8c867ed94",
+      "size": 1084271405,
+      "expanded": 1172068019,
+      "files": 30
+    },
+    {
+      "name": "sam.zip",
+      "sha": "cc50f6de8be5f0bfadd7319eaf4c353d5da3997c623837157c78d561e637a491",
+      "size": 348280012,
+      "expanded": 375042383,
+      "files": 1
+    },
+    {
+      "name": "upscalers.zip",
+      "sha": "f1a4db1496e596557524c1f87574b3f9223ee6fdd8fb48c1357f435f394c09cf",
+      "size": 737829046,
+      "expanded": 1103477170,
+      "files": 15
+    },
+    {
+      "name": "preview.zip",
+      "sha": "96b328887d397bbdafe49b51545a9a5f9aba575c6a676ab325811676e1edfc7b",
+      "size": 29897708,
+      "expanded": 34792475,
+      "files": 12
+    },
+    {
+      "name": "python-packages.zip",
+      "sha": "db960bde95509ad5cd483fcb8853d093cb09276902ccce18465109bffa45c4f9",
+      "size": 615224184,
+      "expanded": 1620467423,
+      "files": 35085
+    }
+  ],
+  "repos": [
+    {
+      "path": ".",
+      "url": "https://github.com/Haoming02/sd-webui-forge-classic",
+      "branch": "neo",
+      "commit": "7d6fd36c58a0e861640bcfe421e4f990921d7f2a"
+    },
+    {
+      "path": "extensions/--sd-webui-ar-plusplus",
+      "url": "https://github.com/altoiddealer/--sd-webui-ar-plusplus.git",
+      "branch": "main",
+      "commit": "8b900cd2748f95bce455db62ba0cb08093a3ca59"
+    },
+    {
+      "path": "extensions/aadetailer-neoforge",
+      "url": "https://github.com/abzaloff/aadetailer-neoforge.git",
+      "branch": "main",
+      "commit": "c4c036d3b1f8bd3a298d6e64878d8338dbfe2597"
+    },
+    {
+      "path": "extensions/anima-model-tools",
+      "url": "https://github.com/asugonomi/anima-model-tools.git",
+      "branch": "main",
+      "commit": "f1aab379b651cc0b6ed091c2542131e75e457e0f"
+    },
+    {
+      "path": "extensions/forge-neo-Anima-HareSkip",
+      "url": "https://github.com/Rootport-AI/forge-neo-Anima-HareSkip",
+      "branch": "main",
+      "commit": "73c18f89c9ae55221b45baf35232a6f18d2e2067"
+    },
+    {
+      "path": "extensions/model-keyword",
+      "url": "https://github.com/mix1009/model-keyword.git",
+      "branch": "main",
+      "commit": "37f3667df8448f105d02f9888c3e2e891b2e5a33"
+    },
+    {
+      "path": "extensions/NeoMerger",
+      "url": "https://github.com/AkiumAI/NeoMerger.git",
+      "branch": "main",
+      "commit": "fc116dc4f34812a439d232cc96491867f8bcc4e7"
+    },
+    {
+      "path": "extensions/repeat-generate-4NEO",
+      "url": "https://github.com/hirorohi03/repeat-generate-4NEO.git",
+      "branch": "main",
+      "commit": "d15479ff3b4f5dee7a0e2bbe2d8bbd5b87a575bf"
+    },
+    {
+      "path": "extensions/ScribeNEO",
+      "url": "https://github.com/hirorohi03/ScribeNEO.git",
+      "branch": "main",
+      "commit": "e9a9deaced174c040f4ddff0540432d761c7c650"
+    },
+    {
+      "path": "extensions/sd-dynamic-prompts",
+      "url": "https://github.com/abzaloff/sd-dynamic-prompts.git",
+      "branch": "main",
+      "commit": "3e62452776f52e2c641c2c52d3cd908140c3743e"
+    },
+    {
+      "path": "extensions/sd-forge-couple",
+      "url": "https://github.com/Haoming02/sd-forge-couple.git",
+      "branch": "main",
+      "commit": "c7884e81623d7fcbf4c92e3aea14ced8b5b6aa74"
+    },
+    {
+      "path": "extensions/sd-webui-bilingual-localization",
+      "url": "https://github.com/journey-ad/sd-webui-bilingual-localization.git",
+      "branch": "main",
+      "commit": "533b7757182ab45ea58e69c7799aa0082b7ba471"
+    },
+    {
+      "path": "extensions/sd-webui-forge-spectrum",
+      "url": "https://github.com/hirorohi03/sd-webui-forge-spectrum.git",
+      "branch": "main",
+      "commit": "61296649ce09cb30b9bdd43f65e0ef9eabc62d26"
+    },
+    {
+      "path": "extensions/sd-webui-negpip",
+      "url": "https://github.com/hako-mikan/sd-webui-negpip.git",
+      "branch": "main",
+      "commit": "97140e4d6e3b5d6eb318337d246a96283ca3f218"
+    },
+    {
+      "path": "extensions/sd-webui-pnginfo-beautify",
+      "url": "https://github.com/bluelovers/sd-webui-pnginfo-beautify.git",
+      "branch": "master",
+      "commit": "8acb72bd44188b68bab71f466ba5660dfd1fdfcf"
+    },
+    {
+      "path": "extensions/sd-webui-prompt-all-in-one-neo",
+      "url": "https://github.com/eduardoabreu81/sd-webui-prompt-all-in-one-neo.git",
+      "branch": "main",
+      "commit": "cecd70ed68c4c48dbd648d3acb16162623fd03fa"
+    },
+    {
+      "path": "extensions/sd-webui-RandomResolution",
+      "url": "https://github.com/IkariOkuto/sd-webui-RandomResolution.git",
+      "branch": "main",
+      "commit": "dd48ee0869540147383e092975bfab8ec7e0a921"
+    },
+    {
+      "path": "extensions/sd-webui-tagcomplete-neo",
+      "url": "https://github.com/eduardoabreu81/sd-webui-tagcomplete-neo.git",
+      "branch": "main",
+      "commit": "781a0b12bd16728bbe6d25006db60400fcbcc548"
+    },
+    {
+      "path": "extensions/Stable-Diffusion-Webui-Civitai-Helper-RED-UPDATE",
+      "url": "https://github.com/Replactionap/Stable-Diffusion-Webui-Civitai-Helper-RED-UPDATE.git",
+      "branch": "master",
+      "commit": "2556ffd6b9032e66669e31433bd74090e7f5d1b4"
+    },
+    {
+      "path": "extensions/stable-diffusion-webui-localization-ja_JP",
+      "url": "https://github.com/L4Ph/stable-diffusion-webui-localization-ja_JP.git",
+      "branch": "main",
+      "commit": "d639f8ca6d635686806bebfc8fb6efbe9a71e636"
+    },
+    {
+      "path": "extensions/TagComplete-Neo-Multi-CSV",
+      "url": "https://github.com/ukr8b3g-cmyk/TagComplete-Neo-Multi-CSV",
+      "branch": "main",
+      "commit": "4d6d95cf63f204087a471d1c6e6c9373e7e5aa7e"
+    },
+    {
+      "path": "extensions/z-tipo-extension",
+      "url": "https://github.com/KohakuBlueleaf/z-tipo-extension.git",
+      "branch": "main",
+      "commit": "549a43365a1fb5e1c545f8a253562627f782caaa"
+    }
+  ],
+  "localExtensions": [
+    "anima-native-tools",
+    "fine-film-grain",
+    "forge-prompt-enhancer",
+    "forge-remote-e-connect",
+    "forge-remote-job-control",
+    "forge-remote-private-connect",
+    "forge-video-studio",
+    "sd-webui-er-sde-comfy",
+    "sd-webui-ph3-image"
+  ],
+  "hf": [
+    {
+      "name": "anima-base-v1.0.safetensors",
+      "size": 4182218328,
+      "sha": "bd43b7cffe1ed1153d9c41e7beb2f18cb1273eafbaa3af3edd6a173dc90a006e",
+      "url": "https://huggingface.co/circlestone-labs/Anima/resolve/6e0b2da2112573380abfb6a1435a60a994b254f2/split_files/diffusion_models/anima-base-v1.0.safetensors"
+    },
+    {
+      "name": "qwen_3_06b_base.safetensors",
+      "size": 1192135096,
+      "sha": "cd2a512003e2f9f3cd3c32a9c3573f820bb28c940f73c57b1ddaa983d9223eba",
+      "url": "https://huggingface.co/circlestone-labs/Anima/resolve/6e0b2da2112573380abfb6a1435a60a994b254f2/split_files/text_encoders/qwen_3_06b_base.safetensors"
+    },
+    {
+      "name": "qwen_image_vae.safetensors",
+      "size": 253806246,
+      "sha": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+      "url": "https://huggingface.co/circlestone-labs/Anima/resolve/6e0b2da2112573380abfb6a1435a60a994b254f2/split_files/vae/qwen_image_vae.safetensors"
+    }
+  ],
+  "tipo": [
+    {
+      "name": "TIPO-200M-ft_TIPO-200M-ft-F16.gguf",
+      "url": "https://huggingface.co/KBlueLeaf/TIPO-200M-ft/resolve/065322b033c03235f095d09ce1b8fd697204f783/TIPO-200M-ft-F16.gguf",
+      "sha": "480ee42a01c4fd42e1e343ceb89685a3a943e8637ffbeba85f53087109ca3ec8",
+      "size": 405913824
+    },
+    {
+      "name": "TIPO-500M-ft_TIPO-500M-ft-F16.gguf",
+      "url": "https://huggingface.co/KBlueLeaf/TIPO-500M-ft/resolve/386fc21b10c810c0c1c8f182695e28fbbd45597c/TIPO-500M-ft-F16.gguf",
+      "sha": "ad5c2d9bda0c31a12e2c39a15c3abc703a3516ea0ff93f9427b1374ad7ff6792",
+      "size": 1016820032
+    },
+    {
+      "name": "TIPOv2-1B-A200M_TIPOv2-1B-A200M-f16.gguf",
+      "url": "https://huggingface.co/KBlueLeaf/TIPOv2-1B-A200M/resolve/3b7e58b92efb7f2a448f0866f151f8ba134bc6f9/TIPOv2-1B-A200M-f16.gguf",
+      "sha": "940a33e1ffe30886a0452c580d0d08124e4ca38655aca5501127432257c29128",
+      "size": 2015578528
+    }
+  ],
+  "localBaseline": "bc645a4c1a1b3d0cae3c1209a9c508abf7b9c8d9"
+}

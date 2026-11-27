@@ -1,1 +1,6 @@
-{"name":"FnMoChIrMrgBl5_int8ConvRot.safetensors","size":3082496712,"sha":"56098d414b8fb58525259a44d89934114a3e996f3e21bf6215ed61fe50e0bacb","url":""}
+{
+  "name": "FnMoChIrMrgBl5_int8ConvRot.safetensors",
+  "size": 3082496712,
+  "sha": "56098d414b8fb58525259a44d89934114a3e996f3e21bf6215ed61fe50e0bacb",
+  "url": "https://huggingface.co/kurousagi132/FnMoChIrMrgBl5_int8ConvRot/resolve/dc34f2e5a88f8e92c5871e454375dac22678960a/FnMoChIrMrgBl5_int8ConvRot.safetensors"
+}
