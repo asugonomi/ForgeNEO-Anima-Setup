@@ -1,0 +1,14 @@
+{
+  "build_date": "2026-11-05",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "torch": "2.10.0+cpu",
+  "cuda_available": false,
+  "gpu_inference_run": false,
+  "test_mode": "CPU tensors, mocked host orchestration and mocked network setup",
+  "gradio": "6.5.1",
+  "Pillow": "12.3.0",
+  "pytest": "9.0.2",
+  "safetensors": "0.7.0",
+  "psutil": "7.2.2"
+}

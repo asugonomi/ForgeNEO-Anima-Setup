@@ -1,0 +1,55 @@
+P-H3 Image Native for Forge Neo, 0.1.0-experimental
+Generated implementation and integration work: 2026-11-05.
+This package is supplied as source under AGPL-3.0-or-later; see LICENSE.
+No claim of affiliation with Pruna AI, MiniMax, Comfy-Org, Forge Neo,
+or the authors of the upstream extension is made.
+
+NATIVE H3 DEPENDENCY (downloaded only by an explicit setup command)
+Project: eduardoabreu81/minimax-h3-forge-neo
+https://github.com/eduardoabreu81/minimax-h3-forge-neo
+Pinned revision: 9387d9189273384f14143707898126abbcb7ae74
+License: GNU Affero General Public License v3.
+The original source files and LICENSE are retained under _vendor/h3.
+Their headers, authorship, and notices are not removed. Only forge_h3/
+and LICENSE are extracted, not the upstream extension registration scripts.
+Its source states that portions were ported from ComfyUI, with Forge-specific
+memory management and operations. This extension does not claim authorship
+of that native transformer, VAE base, quantized operations, or file-backed
+memory mechanism.
+
+P-H3 REFERENCE ADAPTATIONS
+Project: Comfy-Org/ComfyUI
+https://github.com/Comfy-Org/ComfyUI
+Reference revision: 72bcda7696471e5b673c52dabb216650e7c5b71a
+License: GNU General Public License v3.
+Relevant files include comfy/text_encoders/minimax.py,
+comfy/text_encoders/qwen3vl.py, the VAE implementation under
+comfy/ldm/minimax/,
+and comfy_extras/nodes_minimax_h3.py, including the P-H3 additions.
+The local ph3_native/models.py adapts the P-H3 text connector,
+hidden-state selection, image-frame coordinate, and image VAE behavior.
+The adaptations are included in this AGPLv3-covered combined work; original
+GPLv3-covered material retains its applicable upstream license and notices.
+No ComfyUI installation or server is distributed or invoked by this extension.
+
+HOST DEPENDENCIES (not bundled or automatically modified)
+Forge Neo: Haoming02/sd-webui-forge-classic, neo branch.
+Forge Neo retains its own upstream licenses and notices, including material
+from Forge and ComfyUI. comfy-kitchen, PyTorch, transformers, safetensors,
+Gradio, huggingface_hub, Pillow, and other installed host dependencies retain
+their respective licenses. Do not interpret this extension's license as
+relicensing any dependency.
+
+MODEL WEIGHTS (not included)
+PrunaAI/P-H3-Image-Comfy and PrunaAI/P-H3-Image are separate model artifacts.
+https://huggingface.co/PrunaAI/P-H3-Image-Comfy
+https://huggingface.co/PrunaAI/P-H3-Image
+Model terms are not replaced by the source-code license. The optional download
+tool asks the operator to review and accept the model terms. Original model
+LICENSE, NOTICE, and model cards remain authoritative.
+Powered by MiniMaxH3
+
+VALIDATION
+CPU and mocked integration tests do not establish GPU inference, 16 GB VRAM
+compatibility, Windows compatibility, or output parity with the reference.
+See docs/VALIDATION.md for the exact tested scope.

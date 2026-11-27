@@ -1,0 +1,21 @@
+/* Scoped to P-H3; leave the host and other extensions untouched. */
+#ph3_workspace { align-items: flex-start; gap: 20px; }
+#ph3_results { min-width: 0; }
+#ph3_gallery { background: var(--background-fill-secondary); }
+#ph3_gallery img { object-fit: contain !important; }
+#ph3_status textarea { font-size: 13px; }
+#ph3_activity[hidden] { display: none !important; }
+#ph3_activity { padding: 12px; border: 1px solid var(--border-color-primary); border-radius: 8px; background: var(--background-fill-secondary); }
+.ph3_activity_line { display: flex; align-items: center; gap: 10px; min-height: 24px; }
+.ph3_spinner { width: 18px; height: 18px; flex: 0 0 18px; border: 3px solid var(--border-color-primary); border-top-color: #f59e0b; border-radius: 50%; animation: ph3_spin 1s linear infinite; }
+.ph3_track { height: 6px; margin-top: 10px; background: var(--border-color-primary); border-radius: 4px; overflow: hidden; }
+.ph3_track [data-ph3-bar] { height: 100%; width: 0; background: #f59e0b; transition: width .3s; }
+@keyframes ph3_spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .ph3_spinner { animation: none; } }
+@media (min-width: 1100px) {
+  #ph3_results { position: sticky; top: 12px; }
+  #ph3_gallery { height: min(78vh, 960px) !important; min-height: 540px; }
+}
+@media (max-width: 1099px) {
+  #ph3_inputs, #ph3_results { min-width: min(100%, 420px) !important; }
+}

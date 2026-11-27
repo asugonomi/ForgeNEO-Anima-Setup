@@ -1,0 +1,8 @@
+{
+  "repository": "PrunaAI/P-H3-Image",
+  "revision": "7f98acef503cf2bcfba821a78cb1cf1a9928b2df",
+  "sha256": {
+    "tokenizer.json": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+    "tokenizer_config.json": "7ce86d685d3fb775073b9b1c0f576dd89b7943194c771dd2573cc10e5cae4a48"
+  }
+}

@@ -1,0 +1,11 @@
+Native H3 backend derived from:
+https://github.com/eduardoabreu81/minimax-h3-forge-neo
+Revision 92f18010824648ebce04e82146136ac1ed41139b
+License: AGPL-3.0 (see LICENSE)
+
+Local additions: independent top-level video tab, queue serialization, image/video model release,
+optional standalone Forge Prompt Enhancer integration, 360 orbit and 4-step presets,
+CPU token embedding lookup and casting fixes for partially offloaded GGUF text encoder.
+
+No ComfyUI server, HTTP API, background process, or ComfyUI installation is required.
+The native backend contains attributed code adapted by upstream; it runs in the Forge process.
