@@ -1,6 +1,6 @@
 # ForgeNEO Anima セットアップ
 
-Windows x64 向けの日本語 Forge Neo 環境です。最初に [Install-ForgeNEO.bat](https://github.com/asugonomi/ForgeNEO-Anima-Setup/releases/download/v1.0.0/Install-ForgeNEO.bat) を保存し、十分な空き容量のあるフォルダーでダブルクリックしてください。
+Windows x64 向けの日本語 Forge Neo 環境です。最初に [Install-ForgeNEO.bat](https://github.com/asugonomi/ForgeNEO-Anima-Setup/releases/latest/download/Install-ForgeNEO.bat) を保存し、十分な空き容量のあるフォルダーでダブルクリックしてください。
 
 BATと同じ場所に ForgeNEO-Anima フォルダーができます。セットアップ後は ForgeNEO.exe で起動し、ForgeNEO-Update.exe で更新します。コンソールの文字を選択してコピーでき、ログは logs に保存されます。
 
