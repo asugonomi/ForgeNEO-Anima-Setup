@@ -229,7 +229,29 @@ def choices(gpus, build):
                 if re.fullmatch(profile["pattern"], gpu, re.I):
                     yield "rocm-" + profile["arch"]
                     break
-    yield "cpu"
+
+
+def gpu_candidates():
+    info = hardware()
+    say("CPU  " + " / ".join(info["cpu"]) + "\nGPU  " + " / ".join(info["gpu"]))
+    candidates = list(
+        dict.fromkeys(choices(info["gpu"], sys.getwindowsversion().build))
+    )
+    if not candidates:
+        raise RuntimeError(
+            "対応GPUを検出できませんでした。GPUとドライバーを確認してください。"
+        )
+    return candidates
+
+
+def saved_backend():
+    path = STATE / "backend.json"
+    if not path.is_file():
+        return None
+    backend = read(path)
+    if backend == "cpu" and not (STATE / "cpu-manual.json").is_file():
+        return None
+    return backend
 
 
 def envpython(backend):
@@ -250,10 +272,8 @@ def probe(python, backend):
     run([python, "-c", code])
 
 
-def configure_backend():
-    info = hardware()
-    say("CPU  " + " / ".join(info["cpu"]) + "\nGPU  " + " / ".join(info["gpu"]))
-    for backend in dict.fromkeys(choices(info["gpu"], sys.getwindowsversion().build)):
+def configure_backend(candidates):
+    for backend in candidates:
         python = envpython(backend)
         runtime = python.parents[1]
         created_here = not runtime.exists()
@@ -302,6 +322,11 @@ def configure_backend():
                     run([*pip, *args, "torch==2.11.0", "torchvision==0.26.0"])
                 write(marker, True)
             probe(python, backend)
+            consent = STATE / "cpu-manual.json"
+            if backend == "cpu":
+                write(consent, True)
+            else:
+                consent.unlink(missing_ok=True)
             write(STATE / "backend.json", backend)
             return backend
         except (RuntimeError, OSError) as err:
@@ -316,7 +341,7 @@ def configure_backend():
                 except OSError as cleanup_error:
                     say(f"使用中の一時環境を消去できません　{cleanup_error}")
     raise RuntimeError(
-        "CPUを含む演算テストに失敗しました。logsフォルダーを確認してください。"
+        "指定した演算デバイスを使用できません。logsフォルダーを確認してください。"
     )
 
 
@@ -372,14 +397,11 @@ def sync_models():
 
 
 def settings(has_fn):
-    for file in ("config.json", "ui-config.json", "styles.csv"):
+    for file in ("config.json", "ui-config.json"):
         target = FORGE / file
         if target.exists():
             continue
         source = ROOT / "defaults" / file
-        if file == "styles.csv":
-            shutil.copy2(source, target)
-            continue
         cfg = read(source)
         for k, v in list(cfg.items()):
             if isinstance(v, list):
@@ -403,7 +425,7 @@ def settings(has_fn):
         write(target, cfg)
 
 
-def install():
+def install(*, cpu_requested=False):
     first = not (STATE / "installed.json").exists()
     if (
         first
@@ -411,14 +433,16 @@ def install():
         and shutil.disk_usage(ROOT).free < 24 * 1024**3
     ):
         raise OSError("セットアップ開始時は空き容量24 GiB以上が必要です。")
+    selected = saved_backend()
+    if cpu_requested and selected != "cpu":
+        selected = None
+    if selected is None:
+        candidates = ["cpu"] if cpu_requested else gpu_candidates()
     git_tool()
     for item in MANIFEST["assets"]:
         asset(item)
-    selected = (
-        read(STATE / "backend.json")
-        if (STATE / "backend.json").exists()
-        else configure_backend()
-    )
+    if selected is None:
+        selected = configure_backend(candidates)
     probe(envpython(selected), selected)
     cuda = selected == "cu130"
     tag = "v0.3.34-cu130" if cuda else "v0.3.34"
@@ -472,19 +496,24 @@ def install():
             "import gradio,fastapi,cv2,dynamicprompts,ultralytics; print('Forge dependencies OK')",
         ]
     )
-    write(STATE / "installed.json", MANIFEST["tag"])
+    write(STATE / "installed.json", MANIFEST["version"])
     say("セットアップ完了。ForgeNEO.exe をダブルクリックしてください。")
 
 
 def launch():
     git_tool()
-    backend = read(STATE / "backend.json")
+    backend = saved_backend()
+    if backend is None:
+        raise RuntimeError(
+            "GPUか手動指定のCPUを設定してください。Install-ForgeNEO.bat を再実行してください。"
+        )
     python = envpython(backend)
     try:
         probe(python, backend)
-    except RuntimeError:
-        backend = configure_backend()
-        python = envpython(backend)
+    except (RuntimeError, OSError) as err:
+        raise RuntimeError(
+            f"{backend} の演算テストに失敗しました。GPUの再検出は更新メニューの「4」で実行できます。"
+        ) from err
     flags = ["--api", "--skip-prepare-environment"]
     if os.environ.get("FORGENEO_NO_BROWSER") != "1":
         flags.append("--autolaunch")
@@ -505,7 +534,7 @@ def menu():
 
     while True:
         say(
-            "\n1  Forge本体を更新\n2  拡張機能を更新\n3  Hugging Faceモデルを同期\n4  GPU・CPUを再判定\n5  ソフトウェア更新を1件戻す\n6  FnMoのHugging Face URLを登録\n0  終了"
+            "\n1  Forge本体を更新\n2  拡張機能を更新\n3  Hugging Faceモデルを同期\n4  GPUを再検出\n5  ソフトウェア更新を1件戻す\n6  FnMoのHugging Face URLを登録\n0  終了"
         )
         choice = input("番号を入力 > ").strip()
         if choice == "0":
@@ -526,7 +555,7 @@ def menu():
                     write(FORGE / "config.json", cfg)
             say("モデル同期完了")
         if choice == "4":
-            configure_backend()
+            configure_backend(gpu_candidates())
         if choice == "5":
             rollback()
         if choice == "6":
@@ -585,7 +614,7 @@ def main():
 
             recover()
             if action == "install":
-                install()
+                install(cpu_requested=sys.argv[2:] == ["--cpu"])
             elif not (STATE / "installed.json").exists():
                 raise RuntimeError("先にInstall-ForgeNEO.batを実行してください。")
             elif action == "launch":

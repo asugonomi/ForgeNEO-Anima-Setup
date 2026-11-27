@@ -16,13 +16,6 @@
       "files": 2781
     },
     {
-      "name": "presets.zip",
-      "sha": "dd237a146a0e442e15019f19b6ca6c87e133957067deba52b53873c69f2c6d13",
-      "size": 62322,
-      "expanded": 409294,
-      "files": 3
-    },
-    {
       "name": "detectors.zip",
       "sha": "2505e808d64a99c67edceb37ebbb33a5a89ab91b153c4298f052bea8c867ed94",
       "size": 1084271405,
@@ -243,5 +236,6 @@
       "size": 2015578528
     }
   ],
-  "localBaseline": "bc645a4c1a1b3d0cae3c1209a9c508abf7b9c8d9"
+  "localBaseline": "bc645a4c1a1b3d0cae3c1209a9c508abf7b9c8d9",
+  "version": "v1.1.0"
 }

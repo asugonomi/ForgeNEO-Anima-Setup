@@ -12,7 +12,7 @@ BATと同じ場所に ForgeNEO-Anima フォルダーができます。セット�
 
 ## 構成
 
-使用中のForge本体、外部拡張30件と有効・無効設定、ワイルドカード、日本語翻訳、タグ辞書、styles.csv、プリセット、ADetailer・SAM・アップスケーラーを復元します。内容は inventory.json で確認できます。追加のLoRAやワイルドカードが参照する個別LoRAは、必要に応じて forge/models/Lora に置いてください。
+使用中のForge本体、外部拡張30件と有効・無効設定、ワイルドカード、日本語翻訳、タグ辞書、プリセット、ADetailer・SAM・アップスケーラーを復元します。内容は inventory.json で確認できます。追加のLoRAやワイルドカードが参照する個別LoRAは、必要に応じて forge/models/Lora に置いてください。
 
 Windows x64、インターネット接続、NTFSのローカルドライブを想定しています。初回は空き容量35 GiB以上を推奨します。GPU用PyTorchの導入後に演算を試し、利用できるバックエンドを選びます。CPUでは生成に時間とメモリーが必要です。機種やドライバーによって、個別拡張やINT8演算の対応状況が異なります。
 
@@ -30,4 +30,12 @@ Forgeを終了してから ForgeNEO-Update.exe を起動し、「1」で本体�
 
 ## 実機で確認した範囲
 
-Windows x64のRTX 4070 Ti SUPER（CUDA）と、同じPCのCore i7-9700KF（CPU専用PyTorch）で、起動EXEからGradioを開き、Anima Base v1.0とFnMoの両方で384×384の画像を生成しました。AMD ROCmとIntel XPUは判定・フォールバック経路を備えていますが、該当GPUでの生成は未検証です。既存環境とポートが重なるスマートフォン連携拡張2件は生成テスト時に無効化しました。配布時は元の有効・無効設定を使用します。
+Windows x64のRTX 4070 Ti SUPER（CUDA）と、同じPCのCore i7-9700KF（CPU専用PyTorch）で、起動EXEからGradioを開き、Anima Base v1.0とFnMoの両方で384×384の画像を生成しました。AMD ROCmとIntel XPUはGPUの自動検出経路を備えていますが、該当GPUでの生成は未検証です。既存環境とポートが重なるスマートフォン連携拡張2件は生成テスト時に無効化しました。配布時は元の有効・無効設定を使用します。
+
+## GPU・CPUの選択
+
+通常のダブルクリックではGPUで処理します。対応GPUが見つからない場合や演算テストが失敗した場合は停止し、ログに理由を表示します。CPU専用で使いたい場合だけ、コマンドプロンプトから `Install-ForgeNEO.bat --cpu` を実行してください。手動で選んだCPUは次回起動にも引き継ぎます。GPUへ戻すには更新EXEの「4」を選びます。
+
+旧版を導入済みの場合は、Forgeを終了し、新しいBATを従来と同じ場所で実行してください。旧版が自動選択したCPUはGPUの再判定対象になります。プロンプトスタイル（styles.csv）はユーザー自身が管理します。配布するプリセットは config.json と ui-config.json です。
+
+PythonとGitの事前導入は不要です。セットアップは専用のPython 3.13.15を展開し、既存のGitが見つからなければMinGitを自動取得します。
