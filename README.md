@@ -39,3 +39,11 @@ Windows x64のRTX 4070 Ti SUPER（CUDA）と、同じPCのCore i7-9700KF（CPU�
 旧版を導入済みの場合は、Forgeを終了し、新しいBATを従来と同じ場所で実行してください。旧版が自動選択したCPUはGPUの再判定対象になります。プロンプトスタイル（styles.csv）はユーザー自身が管理します。配布するプリセットは config.json と ui-config.json です。
 
 PythonとGitの事前導入は不要です。セットアップは専用のPython 3.13.15を展開し、既存のGitが見つからなければMinGitを自動取得します。
+
+## asugonomi 投稿LoRAの一括ダウンロード
+
+セットアップ先の `ForgeNEO-LoRA.exe` を開き、CivitaiのAPIキーを入力して「投稿一覧を取得」を押します。既存環境では [LoRAダウンローダー単体](https://github.com/asugonomi/ForgeNEO-Anima-Setup/releases/latest/download/ForgeNEO-LoRA.exe) も使えます。単体版は画面の「参照」でForgeのLoRAフォルダーを指定してください。
+
+AnimaとIllustriousをバージョンごとのベースモデルで判定し、それぞれ「ウマ娘」「その他キャラ」「コンセプト」に振り分けます。衣装単体、画風、小物、ポーズなどの汎用LoRAもコンセプトに含みます。一覧は毎回Civitaiから取得し、投稿者がasugonomiのLoRAだけを扱います。取得したい分類と合計サイズを確認して「選んだ分類をダウンロード」を押してください。初期状態では各モデル・各系統の最新版が対象です。「旧バージョンも含める」で過去版も取得できます。
+
+保存先は `LoRAフォルダー/系統/分類/モデルID-バージョンID/元のファイル名` です。取得時にSHA-256を照合し、同じ場所にある検証済みファイルは再利用します。処理を途中で止めた場合も確定済みのファイルは残ります。APIキーはアプリを開いている間だけメモリー上で使用し、CivitaiのAPIにのみ送ります。通常のForgeセットアップにはCivitaiのキーは不要です。

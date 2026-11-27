@@ -24,6 +24,7 @@ def upgrade(root):
         for name in (
             "defaults/config.json",
             "defaults/ui-config.json",
+            "ForgeNEO-LoRA.exe",
             "manager.py",
             "manifest.json",
         ):
@@ -32,7 +33,7 @@ def upgrade(root):
             temp = target.with_name(target.name + ".setup-new")
             shutil.copyfile(source / name, temp)
             os.replace(temp, target)
-        (root / ".setup-v1.1.0").touch()
+        (root / ".setup-v1.2.0").touch()
 
 
 if __name__ == "__main__":
